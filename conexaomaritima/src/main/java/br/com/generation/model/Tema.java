@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -21,7 +22,8 @@ public class Tema {
 	@NotNull(message = "Aviso! é obrigatório escrever um tema")
 	private String tema;
 	
-	@NotNull(message = "Insira as palavras chaves")
+	@NotNull
+	@NotBlank(message = "Insira as palavras chaves")
 	private String palavrasChaves;
 
 	public long getId() {
