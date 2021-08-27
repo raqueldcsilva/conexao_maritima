@@ -16,10 +16,12 @@ public class Tema {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotNull(message = "Aviso! é obrigatório escrever uma descrição")
+	@NotNull
+	@NotBlank(message = "Aviso! é obrigatório escrever uma descrição")
 	private String descricao;
 	
-	@NotNull(message = "Aviso! é obrigatório escrever um tema")
+	@NotNull
+	@NotBlank(message = "Aviso! é obrigatório escrever um tema")
 	private String tema;
 	
 	@NotNull
