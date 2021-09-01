@@ -23,7 +23,7 @@ public class Tema {
 	
 	@NotNull
 	@NotBlank(message = "Aviso! é obrigatório escrever um tema")
-	private String tema;
+	private String nomeTema;
 	
 	@NotNull
 	@NotBlank(message = "Insira as palavras chaves")
@@ -45,12 +45,14 @@ public class Tema {
 		this.descricao = descricao;
 	}
 
-	public String getTema() {
-		return tema;
+	
+
+	public String getNomeTema() {
+		return nomeTema;
 	}
 
-	public void setTema(String tema) {
-		this.tema = tema;
+	public void setNomeTema(String nomeTema) {
+		this.nomeTema = nomeTema;
 	}
 
 	public String getPalavrasChaves() {
