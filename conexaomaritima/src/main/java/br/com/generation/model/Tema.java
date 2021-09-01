@@ -16,7 +16,7 @@ public class Tema {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	//notblack é comando para não aceitar vazio
+	//notblack é comando para não aceitar vazio testando
 	@NotNull
 	@NotBlank(message = "Aviso! é obrigatório escrever uma descrição")
 	private String descricao;
