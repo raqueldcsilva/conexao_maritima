@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ea48f8fc-a221-4756-8808-0e5e0a1b0e0a",
+		"_postman_id": "daa5dbb1-7fc5-4c59-93a2-7a52a4c0637d",
 		"name": "Conexão Maritima",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -167,7 +167,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "deletar",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -180,6 +180,168 @@
 							"port": "8080",
 							"path": [
 								"temas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Postagem",
+			"item": [
+				{
+					"name": "consultar todos postagem",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/postagens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"postagens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultar pelo ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/postagens/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"postagens",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar pelo titulo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/postagens/titulo/ze",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"postagens",
+								"titulo",
+								"ze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consutar pelo texto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/postagens/texto/bora",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"postagens",
+								"texto",
+								"bora"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cadastrar postagem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"titulo\": \"Multirão do Raquel\",\r\n        \"texto\": \"Bora pescar lixo no mar!!!\",\r\n        \"tema\" : {\r\n        \"id\" : 2\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/postagens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"postagens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar postagem",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n         \"id\" : 2,\r\n        \"titulo\": \"Multirão do Raquel\",\r\n        \"texto\": \"Bora pescar lixo no mar!!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/postagens",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"postagens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/postagens/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"postagens",
 								"2"
 							]
 						}
