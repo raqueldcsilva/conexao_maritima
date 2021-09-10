@@ -31,7 +31,7 @@ public class Usuario {
 	
 	@NotNull
 	@NotBlank(message = "Aviso! é obrigatório um e-mail")
-	private String email;
+	private String usuario;
 	
 	@NotNull
 	@NotBlank(message = "Insira sua senha")
@@ -66,12 +66,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getSenha() {
@@ -81,6 +81,7 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
 	
 	
 }
