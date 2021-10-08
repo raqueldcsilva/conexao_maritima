@@ -25,11 +25,11 @@ public class Postagem {
 	private long id;
 	
 	@NotNull(message = "Aviso! é obrigatório escrever um título")
-	@Size(min = 5, max = 100, message = "O título deve ter no mínimo 5 e no máximo 100 carcteres")
+	@Size(min = 5, max = 100, message = "O título deve ter no mínimo 5 e no máximo 100 caracteres")
 	private String titulo;
 	
 	@NotNull(message = "Aviso! é obrigatório escrever um texto")
-	@Size(min = 5, max = 5000, message = "O texto deve ter no mínimo 5 e no máximo 5000 carcteres")
+	@Size(min = 5, max = 5000, message = "O texto deve ter no mínimo 5 e no máximo 5000 caracteres")
 	private String texto;
 	
 	private int curtir;

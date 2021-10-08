@@ -42,9 +42,17 @@ public class Usuario {
 	
 	private String tipo;
 	
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
+
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
 
 	public long getId() {
 		return id;
@@ -94,15 +102,6 @@ public class Usuario {
 		this.tipo = tipo;
 	}
 
-	public List<Postagem> getPostagem() {
-		return postagem;
-	}
-
-	public void setPostagem(List<Postagem> postagem) {
-		this.postagem = postagem;
-	}
-
-	
 	
 	
 }

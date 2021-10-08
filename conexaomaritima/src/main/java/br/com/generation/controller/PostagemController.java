@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.generation.model.Postagem;
 import br.com.generation.repository.PostagemRepository;
+import br.com.generation.service.PostagemService;
 
 
 @RestController
@@ -27,6 +28,8 @@ public class PostagemController {
 	@Autowired
 	private PostagemRepository postagemRepository;
 
+	private PostagemService postagemService;
+	
 	// Consultar todas categorias
 	@GetMapping
 	public ResponseEntity<List<Postagem>> getAll() {
@@ -69,6 +72,23 @@ public class PostagemController {
 	public void deleteTema(@PathVariable long id) {
 		postagemRepository.deleteById(id);
 	}
+	  
+	//curtir 
+	@PutMapping("/curtir/{id}")
+	public ResponseEntity<Postagem> putCurtirPostagemId (@PathVariable Long id){
+		
+		return ResponseEntity.status(HttpStatus.OK).body(postagemService.curtir(id));
+	
+	}
+	
+	//descurtir
+	@PutMapping("/descurtir/{id}")
+	public ResponseEntity<Postagem> putDescurtirPostagemId (@PathVariable Long id){
+		
+		return ResponseEntity.status(HttpStatus.OK).body(postagemService.descurtir(id));
+	
+	}
+
 	
 }
 
