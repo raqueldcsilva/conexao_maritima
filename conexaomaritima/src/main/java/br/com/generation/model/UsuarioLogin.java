@@ -12,51 +12,61 @@ public class UsuarioLogin {
 	private String tipo;
 	
 	//metodos
+
 	public long getId() {
-		return id;
+		return this.id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
 	public String getUsuario() {
-		return usuario;
+		return this.usuario;
 	}
+
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+
 	public String getSenha() {
-		return senha;
+		return this.senha;
 	}
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
 	public String getToken() {
-		return token;
+		return this.token;
 	}
+
 	public void setToken(String token) {
 		this.token = token;
 	}
+
 	public String getFoto() {
-		return foto;
+		return this.foto;
 	}
+
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+
 	public String getTipo() {
-		return tipo;
+		return this.tipo;
 	}
+
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
-	
-	
-	
 	
 }

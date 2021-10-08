@@ -8,9 +8,11 @@ import org.springframework.stereotype.Repository;
 import br.com.generation.model.Tema;
 
 @Repository
-public interface TemaRepository extends JpaRepository<Tema, Long>{
-	
-	public List <Tema> findAllByDescricaoContainingIgnoreCase(String descricao);
-	public List <Tema> findAllByNomeTemaContainingIgnoreCase(String nomeTema);
-	public List <Tema> findAllByPalavrasChavesContainingIgnoreCase(String palavrasChaves);
+public interface TemaRepository extends JpaRepository<Tema, Long> {
+
+	public List<Tema> findAllByDescricaoContainingIgnoreCase(String descricao);
+
+	public List<Tema> findAllByNomeTemaContainingIgnoreCase(String nomeTema);
+
+	public List<Tema> findAllByPalavrasChavesContainingIgnoreCase(String palavrasChaves);
 }

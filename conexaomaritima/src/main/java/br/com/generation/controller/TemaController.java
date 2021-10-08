@@ -31,7 +31,7 @@ public class TemaController {
 	public ResponseEntity<List<Tema>> getAll() {
 		return ResponseEntity.ok(temaRepository.findAll());
 	}
-	
+
 	// Consultar Tema por ID
 	@GetMapping("/{id}")
 	public ResponseEntity<Tema> getById(@PathVariable long id) {
@@ -44,7 +44,7 @@ public class TemaController {
 	public ResponseEntity<List<Tema>> getByDescricao(@PathVariable String descricao) {
 		return ResponseEntity.ok(temaRepository.findAllByDescricaoContainingIgnoreCase(descricao));
 	}
-	
+
 	// Consultar Tema pelo nomeTema
 	@GetMapping("/nomeTema/{nomeTema}")
 	public ResponseEntity<List<Tema>> getBynomeTema(@PathVariable String nomeTema) {
@@ -74,5 +74,5 @@ public class TemaController {
 	public void deleteTema(@PathVariable long id) {
 		temaRepository.deleteById(id);
 	}
-	
+
 }

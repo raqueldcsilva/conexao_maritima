@@ -19,7 +19,6 @@ import br.com.generation.model.Postagem;
 import br.com.generation.repository.PostagemRepository;
 import br.com.generation.service.PostagemService;
 
-
 @RestController
 @RequestMapping("/postagens")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -28,14 +27,15 @@ public class PostagemController {
 	@Autowired
 	private PostagemRepository postagemRepository;
 
+	@Autowired
 	private PostagemService postagemService;
-	
+
 	// Consultar todas categorias
 	@GetMapping
 	public ResponseEntity<List<Postagem>> getAll() {
 		return ResponseEntity.ok(postagemRepository.findAll());
 	}
-	
+
 	// Consultar Postagem por ID
 	@GetMapping("/{id}")
 	public ResponseEntity<Postagem> getById(@PathVariable long id) {
@@ -48,7 +48,7 @@ public class PostagemController {
 	public ResponseEntity<List<Postagem>> getByTitulo(@PathVariable String titulo) {
 		return ResponseEntity.ok(postagemRepository.findAllByTituloContainingIgnoreCase(titulo));
 	}
-	
+
 	// Consultar Postagem pelo texto
 	@GetMapping("/texto/{texto}")
 	public ResponseEntity<List<Postagem>> getByTexto(@PathVariable String texto) {
@@ -72,23 +72,29 @@ public class PostagemController {
 	public void deleteTema(@PathVariable long id) {
 		postagemRepository.deleteById(id);
 	}
-	  
-	//curtir 
+
+	// curtir
 	@PutMapping("/curtir/{id}")
-	public ResponseEntity<Postagem> putCurtirPostagemId (@PathVariable Long id){
-		
+	public ResponseEntity<Postagem> putCurtirPostagemId(@PathVariable Long id) {
+
 		return ResponseEntity.status(HttpStatus.OK).body(postagemService.curtir(id));
-	
+
 	}
-	
-	//descurtir
+
+	// descurtir
 	@PutMapping("/descurtir/{id}")
-	public ResponseEntity<Postagem> putDescurtirPostagemId (@PathVariable Long id){
-		
+	public ResponseEntity<Postagem> putDescurtirPostagemId(@PathVariable Long id) {
+
 		return ResponseEntity.status(HttpStatus.OK).body(postagemService.descurtir(id));
-	
+
 	}
 
-	
-}
+	// Participar
+	@PutMapping("/participar/{id}")
+	public ResponseEntity<Postagem> putParticiparPostagemId(@PathVariable Long id) {
 
+		return ResponseEntity.status(HttpStatus.OK).body(postagemService.participar(id));
+
+	}
+
+}

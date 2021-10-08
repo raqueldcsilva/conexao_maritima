@@ -31,14 +31,14 @@ public class Postagem {
 	@NotNull(message = "Aviso! é obrigatório escrever um texto")
 	@Size(min = 5, max = 5000, message = "O texto deve ter no mínimo 5 e no máximo 5000 caracteres")
 	private String texto;
+		
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date data = new java.sql.Date(System.currentTimeMillis());
 	
 	private int curtir;
 	
 	private int participar;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date data = new java.sql.Date(System.currentTimeMillis());
-	
+
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
@@ -47,16 +47,9 @@ public class Postagem {
 	@JsonIgnoreProperties("postagem")
 	private Usuario usuario;
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 
 	public long getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(long id) {
@@ -64,7 +57,7 @@ public class Postagem {
 	}
 
 	public String getTitulo() {
-		return titulo;
+		return this.titulo;
 	}
 
 	public void setTitulo(String titulo) {
@@ -72,7 +65,7 @@ public class Postagem {
 	}
 
 	public String getTexto() {
-		return texto;
+		return this.texto;
 	}
 
 	public void setTexto(String texto) {
@@ -80,7 +73,7 @@ public class Postagem {
 	}
 
 	public int getCurtir() {
-		return curtir;
+		return this.curtir;
 	}
 
 	public void setCurtir(int curtir) {
@@ -88,7 +81,7 @@ public class Postagem {
 	}
 
 	public int getParticipar() {
-		return participar;
+		return this.participar;
 	}
 
 	public void setParticipar(int participar) {
@@ -96,7 +89,7 @@ public class Postagem {
 	}
 
 	public Date getData() {
-		return data;
+		return this.data;
 	}
 
 	public void setData(Date data) {
@@ -104,12 +97,19 @@ public class Postagem {
 	}
 
 	public Tema getTema() {
-		return tema;
+		return this.tema;
 	}
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
-	
-	
+
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+		
 }

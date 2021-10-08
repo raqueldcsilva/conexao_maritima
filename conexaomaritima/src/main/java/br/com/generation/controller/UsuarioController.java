@@ -19,8 +19,6 @@ import br.com.generation.model.Usuario;
 import br.com.generation.model.UsuarioLogin;
 import br.com.generation.service.UsuarioService;
 
-
-
 @RestController
 @RequestMapping("/usuarios")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -28,31 +26,28 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@GetMapping("/all")
-	public ResponseEntity <List<Usuario>> getAll(){
-		
+	public ResponseEntity<List<Usuario>> getAll() {
+
 		return ResponseEntity.ok(usuarioService.listarUsuarios());
-		
-	}
-	
-	@GetMapping("/{id}")
-	public ResponseEntity <Usuario> getById(@PathVariable long id){
-		
-		return usuarioService.buscarUsuarioId(id)
-			.map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
-			.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-		
-	}
-	
-	@PostMapping("/logar")
-	public ResponseEntity<UsuarioLogin> login(@RequestBody Optional<UsuarioLogin> user) {
-		return usuarioService.autenticarUsuario(user)
-			.map(resp -> ResponseEntity.ok(resp))
-			.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+
 	}
 
-	
+	@GetMapping("/{id}")
+	public ResponseEntity<Usuario> getById(@PathVariable long id) {
+
+		return usuarioService.buscarUsuarioId(id).map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
+				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+
+	}
+
+	@PostMapping("/logar")
+	public ResponseEntity<UsuarioLogin> login(@RequestBody Optional<UsuarioLogin> user) {
+		return usuarioService.autenticarUsuario(user).map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+	}
+
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> postUsuario(@RequestBody Usuario usuario) {
 
@@ -64,13 +59,12 @@ public class UsuarioController {
 		}
 
 	}
-	
+
 	@PutMapping("/atualizar")
-	public ResponseEntity<Usuario> putUsuario(@RequestBody Usuario usuario){
-		
-		return usuarioService.atualizarUsuario(usuario)
-			.map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
-			.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+	public ResponseEntity<Usuario> putUsuario(@RequestBody Usuario usuario) {
+
+		return usuarioService.atualizarUsuario(usuario).map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
+				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
 	}
-	
+
 }
