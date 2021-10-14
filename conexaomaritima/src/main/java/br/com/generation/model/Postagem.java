@@ -38,6 +38,10 @@ public class Postagem {
 	private int curtir;
 	
 	private int participar;
+	
+	private Date dataEvento;
+	
+	private String fotoPostagem;
 
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
@@ -111,5 +115,22 @@ public class Postagem {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public Date getDataEvento() {
+		return dataEvento;
+	}
+
+	public void setDataEvento(Date dataEvento) {
+		this.dataEvento = dataEvento;
+	}
+
+	public String getFotoPostagem() {
+		return fotoPostagem;
+	}
+
+	public void setFotoPostagem(String fotoPostagem) {
+		this.fotoPostagem = fotoPostagem;
+	}
 		
+	
 }
